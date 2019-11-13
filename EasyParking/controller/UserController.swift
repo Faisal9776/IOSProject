@@ -40,8 +40,8 @@ public class UserController{
         }
     }
     
-    func getAllUsers() -> Dictionary<String,Any>?{
-        var users : Dictionary<String, Any>?
+    func getAllUsers(completion: @escaping (Dictionary<String,Any>?) -> Void){
+        var users : Dictionary<String, Any>? = Dictionary<String, Any>()
         db.collection("users").getDocuments(){ (QuerySnapshot,err) in
             if let err = err{
                 print("error getting users: \(err)")
@@ -52,9 +52,8 @@ public class UserController{
                     users![doc.documentID] = doc.data()
                 }
             }
-            
+            completion(users)
         }
         
-        return users
     }
 }

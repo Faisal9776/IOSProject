@@ -27,12 +27,12 @@ class SignInViewController: UIViewController {
     }
     
     func signIn(){
-        let allUsers = controller.getAllUsers()
-        
-        if allUsers!.capacity > 0{
-            for u in allUsers! {
-                let user = allUsers![u.key] as! [String:Any]?
-                print(user!["name"] ?? "No Name")
+        controller.getAllUsers(){ (allUsers) in
+            if allUsers!.count > 0{
+                for u in allUsers! {
+                    let user = allUsers![u.key] as! [String:Any]?
+                    print(user!["name"] ?? "No Name")
+                }
             }
         }
     }
