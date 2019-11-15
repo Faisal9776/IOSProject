@@ -1,0 +1,6 @@
+framework module Pods_EasyParking_EasyParkingUITests {
+  umbrella header "Pods-EasyParking-EasyParkingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
