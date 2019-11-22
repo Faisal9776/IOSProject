@@ -49,6 +49,21 @@ public class UserController{
         
     }
     
+    func updatePassword(email:String,password:String){
+        db.collection("users").whereField("email", isEqualTo: email).getDocuments(){ (querySnapshot, err) in
+            if let err = err{
+                print("Error getting data: \(err)")
+            }else{
+                let userData = querySnapshot!.documents.first
+                
+                userData?.reference.updateData([
+                    "password" : password
+                ])
+            }
+            
+        }
+    }
+    
     func getUser(id:String, completion: @escaping (User) -> Void){
         var user : User?
         

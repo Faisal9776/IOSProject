@@ -67,10 +67,58 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func onForgotPassword(){
+        let forgotAlert = UIAlertController(title: "Forgot Password?", message: "Enter your email and new password", preferredStyle: .alert)
+        forgotAlert.addTextField{(textField : UITextField) in
+            textField.placeholder = "Enter Email"
+        }
+        forgotAlert.addTextField{(textField : UITextField) in
+            textField.placeholder = "Enter new password"
+        }
+        forgotAlert.addTextField{(textField : UITextField) in
+            textField.placeholder = "Confirm new password"
+        }
         
+        forgotAlert.addAction(UIAlertAction(title: "Change Password", style: .default, handler: {
+            _ in
+            if let email = forgotAlert.textFields?[0].text{
+                let newPassword = forgotAlert.textFields?[1].text
+                let confirmNew = forgotAlert.textFields?[2].text
+                
+                if(newPassword == confirmNew){
+                    self.controller.updatePassword(email:email,password:newPassword!)
+                }
+            }
+        }))
+        
+        forgotAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(forgotAlert,animated: true,completion: nil)
     }
     
+    func rememberLogin(){
+        UserDefaults.standard.set(self.txtEmail.text, forKey: "EMAIL")
+        UserDefaults.standard.set(self.txtPassword.text, forKey: "PASSWORD")
+    }
     
+    func getRememberedLogin(){
+        if let email = UserDefaults.standard.value(forKey: "EMAIL"){
+            self.txtEmail.text = email as? String
+        }
+        
+        if let password = UserDefaults.standard.value(forKey: "PASSWORD"){
+            self.txtPassword.text = password as? String
+        }
+    }
+    
+    func forgetLogin(){
+        if let _ = UserDefaults.standard.value(forKey: "EMAIL"){
+            UserDefaults.standard.removeObject(forKey: "EMAIL")
+        }
+        
+        if let _ = UserDefaults.standard.value(forKey: "PASSWORD"){
+            UserDefaults.standard.removeObject(forKey: "PASSWORD")
+        }
+    }
 
     /*
     // MARK: - Navigation
