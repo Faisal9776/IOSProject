@@ -10,6 +10,7 @@
 		080ED2DA237C717B00C013C0 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ED2D9237C717B00C013C0 /* UserController.swift */; };
 		080ED2DC237C834000C013C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ED2DB237C834000C013C0 /* SignUpViewController.swift */; };
 		0836A359237B704000776A24 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836A358237B704000776A24 /* SignInViewController.swift */; };
+		085B9FFD237F45E6005D948D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085B9FFC237F45E6005D948D /* User.swift */; };
 		08ABF19823788EE400CEC3D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF19723788EE400CEC3D6 /* AppDelegate.swift */; };
 		08ABF19A23788EE400CEC3D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF19923788EE400CEC3D6 /* SceneDelegate.swift */; };
 		08ABF19C23788EE400CEC3D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF19B23788EE400CEC3D6 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		080ED2D9237C717B00C013C0 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		080ED2DB237C834000C013C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0836A358237B704000776A24 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		085B9FFC237F45E6005D948D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		08ABF19423788EE400CEC3D6 /* EasyParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08ABF19723788EE400CEC3D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08ABF19923788EE400CEC3D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		0836A35A237B7BD600776A24 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				085B9FFC237F45E6005D948D /* User.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				080ED2DA237C717B00C013C0 /* UserController.swift in Sources */,
 				08ABF19823788EE400CEC3D6 /* AppDelegate.swift in Sources */,
 				08ABF19A23788EE400CEC3D6 /* SceneDelegate.swift in Sources */,
+				085B9FFD237F45E6005D948D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

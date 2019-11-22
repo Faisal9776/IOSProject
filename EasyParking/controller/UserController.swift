@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseAuth
 
 public class UserController{
     var db : Firestore!
@@ -20,22 +22,46 @@ public class UserController{
     }
     
     func addNewUser(name: String, email:String,password:String, contact:String,plate : String, credit_card:String, expiry:String,card_name:String,CVV:Int){
-        var ref : DocumentReference? = nil
-        ref = db.collection("users").addDocument(data: [
-            "name" : name,
-            "email" : email,
-            "password" : password,
-            "contact_number" : contact,
-            "plate_number" : plate,
-            "credit_card" : credit_card,
-            "card_expiration" : expiry,
-            "card_name" : card_name,
-            "CVV" : CVV,
-        ]){ err in
-            if let err = err{
-                print("Error adding user: \(err)")
+        
+        //add user to firebase
+        Auth.auth().createUser(withEmail: email, password: password){ authResult, error in
+            
+            //adds user data to db
+            var ref : DocumentReference? = nil
+            ref = self.db.collection("users").addDocument(data: [
+                "name" : name,
+                "email" : email,
+                "password" : password,
+                "contact_number" : contact,
+                "plate_number" : plate,
+                "credit_card" : credit_card,
+                "card_expiration" : expiry,
+                "card_name" : card_name,
+                "CVV" : CVV,
+            ]){ err in
+                if let err = err{
+                    print("Error adding user: \(err)")
+                }else{
+                    print("user added with Id: \(ref!.documentID)")
+                }
+            }
+        }
+        
+    }
+    
+    func getUser(id:String, completion: @escaping (User) -> Void){
+        var user : User?
+        
+        db.collection("users").document(id).getDocument{ (document,err) in
+            if let document = document, document.exists{
+                //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                let docData = document.data()!
+                user = User(name: docData["name"] as! String, email: docData["email"] as! String, password: docData["password"] as! String, contact_number: docData["contact_number"] as! String, plate_number: docData["plate_number"] as! String, credit_card: docData["credit_card"] as! String, card_name: docData["card_name"] as! String, expiry_date: docData["card_expiration"] as! String, cvv: docData["CVV"] as! Int)
+                //print("document data: \(dataDescription)")
+                completion(user!)
             }else{
-                print("user added with Id: \(ref!.documentID)")
+                print("document does not exist")
+                user = nil
             }
         }
     }

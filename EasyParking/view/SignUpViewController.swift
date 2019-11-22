@@ -40,10 +40,13 @@ class SignUpViewController: UIViewController {
         let cardName = txtCardName.text!
         let expiryDate = txtExpiry.text!
         let cvv = Int(txtCVV.text!) ?? 0
+        
         if pass == confirmPass{
+            let newUser = User(name: name, email: email, password: pass, contact_number: contact, plate_number: plate, credit_card: credit, card_name: cardName, expiry_date: expiryDate, cvv: cvv)
+            
             controller.addNewUser(name: name, email: email, password: pass, contact: contact, plate : plate, credit_card: credit, expiry: expiryDate, card_name: cardName, CVV: cvv)
             
-            //head to after sign in screen
+            //TODO: head to after sign in screen
         }
     }
 

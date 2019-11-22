@@ -31,7 +31,30 @@ class SignInViewController: UIViewController {
             if allUsers!.count > 0{
                 for u in allUsers! {
                     let user = allUsers![u.key] as! [String:Any]?
-                    print(user!["name"] ?? "No Name")
+                    
+                    let enteredEmail = self.txtEmail.text
+                    let enteredPassword = self.txtPassword.text
+                    //print(user!["name"] ?? "No Name")
+                    let userName : String = user!["name"] as! String
+                    let userEmail : String = user!["email"] as! String
+                    let userPassword : String = user!["password"] as! String
+                    let userContact : String = user!["contact_number"] as! String
+                    let userPlate : String = user!["plate_number"] as! String
+                    let userCredit : String = user!["credit_card"] as! String
+                    let userCardName : String = user!["card_name"] as! String
+                    let userExpiry : String = user!["card_expiration"] as! String
+                    let userCVV : Int = user!["CVV"] as! Int
+                    
+                    //self.controller.getUser(id: u.key){ (logging_in) in
+                      //  print("printing user details")
+                        //print(logging_in.name)
+                    //}
+                    
+                    if  (userEmail == enteredEmail) && (userPassword == enteredPassword){
+                        print("Successful Login")
+                        let authenticatedUser = User(name: userName, email: userEmail, password: userPassword, contact_number: userContact, plate_number: userPlate, credit_card: userCredit, card_name: userCardName, expiry_date: userExpiry, cvv: userCVV)
+                        //TODO: send to the home page
+                    }
                 }
             }
         }
