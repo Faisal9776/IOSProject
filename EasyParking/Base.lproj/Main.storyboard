@@ -131,6 +131,69 @@
             </objects>
             <point key="canvasLocation" x="943" y="84"/>
         </scene>
+        <!--Home Page View Controller-->
+        <scene sceneID="cma-Uf-Ts4">
+            <objects>
+                <viewController storyboardIdentifier="HomePageScene" id="yHh-QH-dI8" customClass="HomePageViewController" customModule="EasyParking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4WQ-60-Hiy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZI-vL-Daq">
+                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gZI-vL-Daq" firstAttribute="leading" secondItem="dfu-2u-d5O" secondAttribute="leading" constant="20" id="F86-9u-9bb"/>
+                            <constraint firstItem="gZI-vL-Daq" firstAttribute="top" secondItem="dfu-2u-d5O" secondAttribute="top" constant="20" id="l8A-u1-nxw"/>
+                            <constraint firstItem="dfu-2u-d5O" firstAttribute="trailing" secondItem="gZI-vL-Daq" secondAttribute="trailing" constant="20" id="w1W-tZ-kkf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dfu-2u-d5O"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5lm-NR-LZ6">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Parking App Manual" image="book.fill" catalog="system" id="d7c-xC-OYj">
+                                <connections>
+                                    <action selector="onParkingManual:" destination="yHh-QH-dI8" id="bUr-hQ-TGa"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Customer Support" image="person.fill" catalog="system" id="3R9-lH-qUl">
+                                <connections>
+                                    <action selector="onCustomerSupport:" destination="yHh-QH-dI8" id="Mrn-J9-1Ix"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add Parking" image="plus" catalog="system" id="tOT-Td-fW4">
+                                <connections>
+                                    <action selector="onAddParking:" destination="yHh-QH-dI8" id="iIa-C4-jn4"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Find Nearby Parking" image="map.fill" catalog="system" id="MTU-JE-q7B">
+                                <connections>
+                                    <action selector="onFindNearbyParking:" destination="yHh-QH-dI8" id="mRN-Cu-UBZ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Parking Reciept List" image="list.bullet" catalog="system" id="hzU-Gq-7az">
+                                <connections>
+                                    <action selector="onParkingReceiptList:" destination="yHh-QH-dI8" id="c5y-9g-P2j"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="lblWelcomeBanner" destination="gZI-vL-Daq" id="3Ie-2h-784"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cjb-eN-roY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947" y="802"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="RiE-77-G6x">
             <objects>
@@ -281,4 +344,11 @@
             <point key="canvasLocation" x="1826.0869565217392" y="79.6875"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="book.fill" catalog="system" width="64" height="50"/>
+        <image name="list.bullet" catalog="system" width="64" height="44"/>
+        <image name="map.fill" catalog="system" width="64" height="56"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
+    </resources>
 </document>

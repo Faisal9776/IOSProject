@@ -30,7 +30,9 @@ class SignInViewController: UIViewController {
         controller.getAllUsers(){ (allUsers) in
             if allUsers!.count > 0{
                 for u in allUsers! {
-                    let user = allUsers![u.key] as! [String:Any]?
+                    let id = u.key
+                    
+                    let user = allUsers![id] as! [String:Any]?
                     
                     let enteredEmail = self.txtEmail.text
                     let enteredPassword = self.txtPassword.text
@@ -54,6 +56,13 @@ class SignInViewController: UIViewController {
                         print("Successful Login")
                         let authenticatedUser = User(name: userName, email: userEmail, password: userPassword, contact_number: userContact, plate_number: userPlate, credit_card: userCredit, card_name: userCardName, expiry_date: userExpiry, cvv: userCVV)
                         //TODO: send to the home page
+                        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let HomePageVC = storyboard.instantiateViewController(withIdentifier: "HomePageScene") as! HomePageViewController
+                        HomePageVC.user = authenticatedUser!
+                        HomePageVC.userId = id
+                        self.navigationController?.pushViewController(HomePageVC, animated: true)
+                        
+                        break
                     }
                 }
             }

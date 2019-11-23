@@ -18,6 +18,10 @@ public class User{
     let expiryDate : String
     let cvv : Int
     
+    init?() {
+        
+    }
+    
     init?(name: String, email: String, password: String, contact_number:String, plate_number:String,
         credit_card : String, card_name: String, expiry_date: String, cvv: Int) {
         self.name = name
