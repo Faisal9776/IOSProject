@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07DAE6372388BB1D00CCB23A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAE6362388BB1D00CCB23A /* MapController.swift */; };
 		080ED2DA237C717B00C013C0 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ED2D9237C717B00C013C0 /* UserController.swift */; };
 		080ED2DC237C834000C013C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ED2DB237C834000C013C0 /* SignUpViewController.swift */; };
 		0836A359237B704000776A24 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836A358237B704000776A24 /* SignInViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07DAE6362388BB1D00CCB23A /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		080ED2D9237C717B00C013C0 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		080ED2DB237C834000C013C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0836A358237B704000776A24 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				08ABF19B23788EE400CEC3D6 /* ViewController.swift */,
 				0836A358237B704000776A24 /* SignInViewController.swift */,
 				080ED2DB237C834000C013C0 /* SignUpViewController.swift */,
+				07DAE6362388BB1D00CCB23A /* MapController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				080ED2DC237C834000C013C0 /* SignUpViewController.swift in Sources */,
+				07DAE6372388BB1D00CCB23A /* MapController.swift in Sources */,
 				0836A359237B704000776A24 /* SignInViewController.swift in Sources */,
 				08ABF19C23788EE400CEC3D6 /* ViewController.swift in Sources */,
 				080ED2DA237C717B00C013C0 /* UserController.swift in Sources */,
