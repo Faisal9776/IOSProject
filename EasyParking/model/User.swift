@@ -8,18 +8,26 @@
 
 import Foundation
 public class User{
-    let name : String
-    let email : String
-    let pass : String
-    let contact : String
-    let plate : String
-    let credit : String
-    let cardName : String
-    let expiryDate : String
-    let cvv : Int
+    let name : String?
+    let email : String?
+    let pass : String?
+    let contact : String?
+    let plate : String?
+    let credit : String?
+    let cardName : String?
+    let expiryDate : String?
+    let cvv : Int?
     
-    init?() {
-        
+    init?(){
+        self.name = nil
+        self.email = nil
+        self.pass = nil
+        self.contact = nil
+        self.plate = nil
+        self.credit = nil
+        self.cardName = nil
+        self.expiryDate = nil
+        self.cvv = nil
     }
     
     init?(name: String, email: String, password: String, contact_number:String, plate_number:String,

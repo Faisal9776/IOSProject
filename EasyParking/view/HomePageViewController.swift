@@ -19,7 +19,7 @@ class HomePageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        lblWelcomeBanner.text = "Welcome " + user.name
+        lblWelcomeBanner.text = "Welcome " + user.name!
     }
     
     @IBAction func onAddParking(_ sender:UIBarButtonItem){

@@ -28,6 +28,7 @@ class SignInViewController: UIViewController {
     
     func signIn(){
         controller.getAllUsers(){ (allUsers) in
+            var signInStatus = false
             if allUsers!.count > 0{
                 for u in allUsers! {
                     let id = u.key
@@ -54,6 +55,7 @@ class SignInViewController: UIViewController {
                     
                     if  (userEmail == enteredEmail) && (userPassword == enteredPassword){
                         print("Successful Login")
+                        signInStatus = true
                         let authenticatedUser = User(name: userName, email: userEmail, password: userPassword, contact_number: userContact, plate_number: userPlate, credit_card: userCredit, card_name: userCardName, expiry_date: userExpiry, cvv: userCVV)
                         //TODO: send to the home page
                         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -66,6 +68,12 @@ class SignInViewController: UIViewController {
                     }
                 }
             }
+            if(!signInStatus){
+                let wrongSignInAlert = UIAlertController(title: "Incorrect Credentials", message: "Your email or password was incorrect, please try again", preferredStyle: .alert)
+                wrongSignInAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(wrongSignInAlert,animated: true,completion: nil)
+            }
+            
         }
     }
     
