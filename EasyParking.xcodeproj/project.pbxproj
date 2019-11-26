@@ -22,6 +22,13 @@
 		766986A7D23EC0138353FE0B /* Pods_EasyParking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C511477922FA1ED8173384 /* Pods_EasyParking.framework */; };
 		76E5F180363C019FA048B836 /* Pods_EasyParkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F815EEDFFF78B95C1F671D6B /* Pods_EasyParkingTests.framework */; };
 		A1B80378D3562DE0F8DF639F /* Pods_EasyParking_EasyParkingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D87EC04457D317C23F10B9 /* Pods_EasyParking_EasyParkingUITests.framework */; };
+		BA6446842384970D00AFA840 /* ParkingInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6446832384970D00AFA840 /* ParkingInputViewController.swift */; };
+		BA6446862384A15D00AFA840 /* ParkingReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6446852384A15D00AFA840 /* ParkingReceiptViewController.swift */; };
+		BA6446882384A17300AFA840 /* ParkingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6446872384A17300AFA840 /* ParkingDetailViewController.swift */; };
+		BA64468A2384A1E200AFA840 /* ParkingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6446892384A1E200AFA840 /* ParkingCell.swift */; };
+		BA64468C2384A20500AFA840 /* ParkingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64468B2384A20500AFA840 /* ParkingTVC.swift */; };
+		BA6446902384B4FA00AFA840 /* ParkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64468F2384B4FA00AFA840 /* ParkingController.swift */; };
+		BA6446922384B53F00AFA840 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6446912384B53F00AFA840 /* Parking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +73,13 @@
 		9B73687206DB5F6A300AB0BD /* Pods-EasyParkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyParkingTests.release.xcconfig"; path = "Target Support Files/Pods-EasyParkingTests/Pods-EasyParkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		ADC7968DBF16B4D2782385EB /* Pods-EasyParking-EasyParkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyParking-EasyParkingUITests.release.xcconfig"; path = "Target Support Files/Pods-EasyParking-EasyParkingUITests/Pods-EasyParking-EasyParkingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B3FADF585A75144CE8928118 /* Pods-EasyParking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyParking.release.xcconfig"; path = "Target Support Files/Pods-EasyParking/Pods-EasyParking.release.xcconfig"; sourceTree = "<group>"; };
+		BA6446832384970D00AFA840 /* ParkingInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingInputViewController.swift; sourceTree = "<group>"; };
+		BA6446852384A15D00AFA840 /* ParkingReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingReceiptViewController.swift; sourceTree = "<group>"; };
+		BA6446872384A17300AFA840 /* ParkingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingDetailViewController.swift; sourceTree = "<group>"; };
+		BA6446892384A1E200AFA840 /* ParkingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingCell.swift; sourceTree = "<group>"; };
+		BA64468B2384A20500AFA840 /* ParkingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTVC.swift; sourceTree = "<group>"; };
+		BA64468F2384B4FA00AFA840 /* ParkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingController.swift; sourceTree = "<group>"; };
+		BA6446912384B53F00AFA840 /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Parking.swift; path = EasyParking/controller/Parking.swift; sourceTree = SOURCE_ROOT; };
 		F815EEDFFF78B95C1F671D6B /* Pods_EasyParkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyParkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9CD5AA95483A06113C84210 /* Pods-EasyParking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyParking.debug.xcconfig"; path = "Target Support Files/Pods-EasyParking/Pods-EasyParking.debug.xcconfig"; sourceTree = "<group>"; };
 		FC55C662DA1202F96D7AFF4F /* Pods-EasyParkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyParkingTests.debug.xcconfig"; path = "Target Support Files/Pods-EasyParkingTests/Pods-EasyParkingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +116,7 @@
 		0836A35A237B7BD600776A24 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BA6446912384B53F00AFA840 /* Parking.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -112,6 +127,11 @@
 				08ABF19B23788EE400CEC3D6 /* ViewController.swift */,
 				0836A358237B704000776A24 /* SignInViewController.swift */,
 				080ED2DB237C834000C013C0 /* SignUpViewController.swift */,
+				BA6446832384970D00AFA840 /* ParkingInputViewController.swift */,
+				BA6446852384A15D00AFA840 /* ParkingReceiptViewController.swift */,
+				BA6446872384A17300AFA840 /* ParkingDetailViewController.swift */,
+				BA6446892384A1E200AFA840 /* ParkingCell.swift */,
+				BA64468B2384A20500AFA840 /* ParkingTVC.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -120,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				080ED2D9237C717B00C013C0 /* UserController.swift */,
+				BA64468F2384B4FA00AFA840 /* ParkingController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -444,11 +465,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA64468A2384A1E200AFA840 /* ParkingCell.swift in Sources */,
 				080ED2DC237C834000C013C0 /* SignUpViewController.swift in Sources */,
+				BA6446902384B4FA00AFA840 /* ParkingController.swift in Sources */,
 				0836A359237B704000776A24 /* SignInViewController.swift in Sources */,
 				08ABF19C23788EE400CEC3D6 /* ViewController.swift in Sources */,
 				080ED2DA237C717B00C013C0 /* UserController.swift in Sources */,
+				BA6446862384A15D00AFA840 /* ParkingReceiptViewController.swift in Sources */,
+				BA6446842384970D00AFA840 /* ParkingInputViewController.swift in Sources */,
+				BA6446922384B53F00AFA840 /* Parking.swift in Sources */,
+				BA64468C2384A20500AFA840 /* ParkingTVC.swift in Sources */,
 				08ABF19823788EE400CEC3D6 /* AppDelegate.swift in Sources */,
+				BA6446882384A17300AFA840 /* ParkingDetailViewController.swift in Sources */,
 				08ABF19A23788EE400CEC3D6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

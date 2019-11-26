@@ -37,6 +37,23 @@ class SignInViewController: UIViewController {
         }
     }
     
+    @IBAction func onSign(_ sender : UIButton){
+        var l = Int()
+        let k: String = "date k junk k"
+        
+        for i in k{
+            if k.contains("k"){
+            l += 1
+        }
+        }
+        
+        print(l)
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ParkingInputVC = storyboard.instantiateViewController(withIdentifier: "ParkingInputScene") as! ParkingInputViewController
+        navigationController?.pushViewController(ParkingInputVC, animated: true)
+     }
+    
     @IBAction func onSignUp(){
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let SignUpVC = storyboard.instantiateViewController(withIdentifier: "SignUpScene") as! SignUpViewController
