@@ -13,12 +13,15 @@ import FirebaseFirestore
 public class ParkingController{
     var db : Firestore!
     
+    //initialize firestore setting
     init() {
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
     }
     
+    //add new parking as a document to firestore parking collection
+    //uses parking model as format
     func addNewParking(newParking: Parking){
         var ref : DocumentReference? = nil
         ref = db.collection("users").document("6gen0gQdPOJ91k8tTbe6") .collection("parkings").addDocument(data: [
@@ -37,10 +40,16 @@ public class ParkingController{
         }
     }
     
+    //get latest parking by ordering it through collection of parking
+    //by 'dateAndTime' and getting the last one
+    //however, for eg. limit(10) doesn't return an ordered documents
+    //only the the last 10 parkings of documents
+    //that is why I couldn't implement this way in ParkingTVC to display list sorted by array
     func getLatestParking(completion: @escaping (Dictionary<String,Any>?) -> Void)
               {
     var parkings : Dictionary<String, Any>? = Dictionary<String, Any>()
-                  db.collection("users").document("6gen0gQdPOJ91k8tTbe6") .collection("parkings").order(by: "dateAndTime", descending: true).limit(to:1).getDocuments(){ (QuerySnapshot,err) in
+             
+            db.collection("users").document("6gen0gQdPOJ91k8tTbe6") .collection("parkings").order(by: "dateAndTime", descending: true).limit(to:1).getDocuments(){ (QuerySnapshot,err) in
               if let err = err{
                   print("error getting users: \(err)")
                   parkings = nil
@@ -52,9 +61,12 @@ public class ParkingController{
               }
 
               completion(parkings)
+                    
           }
       }
     
+    //return number of parking that is made this month
+    //check if month(eg. Nov.) is contained in the date of all documents
     func getParkingsByMonth(completion: @escaping (Int) -> Void)
                 {
                     
@@ -65,46 +77,48 @@ public class ParkingController{
 
                     let dateString = dateFormatter.string(from: date) as String
                     var parking : Int = Int()
-                    var k: String = ""
-                        
-     // var parkings : Dictionary<String, Any>? = Dictionary<String, Any>()
+                    var current: String = ""
+  
                     db.collection("users").document("6gen0gQdPOJ91k8tTbe6") .collection("parkings").getDocuments(){ (QuerySnapshot,err) in
                 if let err = err{
                     print("error getting users: \(err)")
                     
                 }else{
-                    //return parkings
-                    print(QuerySnapshot?.documents.count)
+                   
                     for doc in QuerySnapshot!.documents{
-                        k = doc.data()["dateAndTime"] as! String
+                        current = doc.data()["dateAndTime"] as! String
                         
-                        if k.contains(dateString){
+                        if current.contains(dateString){
                             parking += 1
                         }
                                       
                 }
 
                 completion(parking)
-                    print("hhhe")
-                    print(parking)
+                   
                         
             }
                     
                     }
     }
     
+    //gets all the documents in parking collection
     func getAllParking(completion: @escaping (Dictionary<String,Any>?) -> Void)
             {
+                
+                
                 var parkings : Dictionary<String, Any>? = Dictionary<String, Any>()
-                db.collection("users").document("6gen0gQdPOJ91k8tTbe6") .collection("parkings").order(by: "dateAndTime", descending: true).getDocuments(){ (QuerySnapshot,err) in
+
+                db.collection("users").document("6gen0gQdPOJ91k8tTbe6") .collection("parkings").getDocuments(){ (QuerySnapshot,err) in
             if let err = err{
                 print("error getting users: \(err)")
                 parkings = nil
             }else{
                 //return parkings
+               //let k = QuerySnapshot!.documents.reversed()
                 for doc in QuerySnapshot!.documents{
                     parkings![doc.documentID] = doc.data()
-                    print(parkings)
+                   // print(parkings)
                     
                 }
             }

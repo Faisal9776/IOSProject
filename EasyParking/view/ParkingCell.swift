@@ -10,6 +10,7 @@ import UIKit
 
 class ParkingCell: UITableViewCell {
     
+    //defines each cell with title which in this case would contain date and time of each parkings
     
     @IBOutlet var title: UILabel!
 

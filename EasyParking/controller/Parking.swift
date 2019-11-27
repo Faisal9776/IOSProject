@@ -13,10 +13,10 @@ class Parking {
     var carPlateNumber: String = ""
     var suitNumber : String = ""
     var timeAmount: String = ""
-    var charge: String = ""
+    var charge: Int = 0
     var dateAndTime: String = ""
     
-    init (buildingCode : String, timeAmount: String, carPlateNumber: String, suitNumber: String, dateAndTime: String, charge: String){
+    init (buildingCode : String, timeAmount: String, carPlateNumber: String, suitNumber: String, dateAndTime: String, charge: Int){
         self.buildingCode = buildingCode
         self.timeAmount = timeAmount
         self.carPlateNumber = carPlateNumber

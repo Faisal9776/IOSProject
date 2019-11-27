@@ -24,7 +24,7 @@ class ParkingDetailViewController: UIViewController {
         super.viewDidLoad()
 
         
-        //set each label from currentPakring detail
+        //set each labels from currentPakring detail
         buildingCode.text = currentParking.buildingCode
         
         timeAmount.text = currentParking.timeAmount
@@ -35,8 +35,8 @@ class ParkingDetailViewController: UIViewController {
         
         dateAndTime.text = currentParking.dateAndTime
         
-        charges.text = currentParking.charge
-        // Do any additional setup after loading the view.
+        charges.text = String(currentParking.charge)
+        
     }
     
 

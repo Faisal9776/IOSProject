@@ -17,7 +17,7 @@ class ParkingInputViewController: UIViewController, UIPickerViewDelegate, UIPick
      
      var timeAmount: [String] = [String]()
      var chargeAmount: [Int] = [Int]()
-     var selectedTime: String = "0"
+     var selectedTime: String = "1"
      var charge: Int! = 4
      var count: Int! = 0
      var monthCount: Int! = 0
@@ -39,38 +39,58 @@ class ParkingInputViewController: UIViewController, UIPickerViewDelegate, UIPick
        navigationController?.pushViewController(ParkingInputVC, animated: true)
     }
     
+    // assigns all the input values to variable, create instance of parking and add it to the parking collection by calling add parking method in parking controller
       @IBAction func onAddParking(_ sender: UIButton) {
      
-        var userCharge: String = "0"
+        var userCharge: Int = 0
+        var userBuildingCode: String = ""
+        var userCarPlateNumber: String = ""
+        var userSuitNumber: String = ""
    
         let date = Date()
         let dateFormatter = DateFormatter()
                
-        dateFormatter.dateFormat = "MMM dd,yyyy hh:mm a"
-
-        let dateString = dateFormatter.string(from: date) as String
-        let userBuildingCode = buildingCode.text! as String
-        let  userTimeAmount = selectedTime
-        let userCarPlateNumber = carPlateNumber.text! as String
-        let userSuitNumber = suitNumber.text! as String
-        
-        if (monthCount > 3) {
-            userCharge = String(self.charge!)
+        dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
+      
+        //verifies the user inputs
+        if (buildingCode.text!.count <= 0){
+            print("Building Code has to be at least 1 character")
         }
         
+        else if (carPlateNumber.text!.count != 7){
+            print("Car Plate Number has to be exactly 7 characters")
+        }
         
-        //creating parking object with model and fetched values
-        let newParking = Parking(buildingCode : userBuildingCode , timeAmount: userTimeAmount , carPlateNumber: userCarPlateNumber, suitNumber: userSuitNumber , dateAndTime: dateString , charge: userCharge)
+        else if (suitNumber.text!.count <= 0){
+            print("Suit Number has to be at least 1 character")
+        }
         
-        
-        controller.addNewParking(newParking: newParking)
-        
-        
-         openReceiptScene()
+        else{
+            
+            userBuildingCode = buildingCode.text! as String
+             userCarPlateNumber = carPlateNumber.text! as String
+             userSuitNumber = suitNumber.text! as String
+            let dateString = dateFormatter.string(from: date) as String
+            let  userTimeAmount = selectedTime
+            
+            if (monthCount >= 3) {
+                userCharge = self.charge!
+            }
+            
+            
+            //creating parking object with model and fetched values
+            let newParking = Parking(buildingCode : userBuildingCode , timeAmount: userTimeAmount , carPlateNumber: userCarPlateNumber, suitNumber: userSuitNumber , dateAndTime: dateString , charge: userCharge)
+            
+            
+            controller.addNewParking(newParking: newParking)
+            
+            
+             openReceiptScene()
+        }
           
-           
        }
     
+    //get the count of all parkings this month and assign it to monthCount
     func checkMonthParking(){
         
         controller.getParkingsByMonth(){(monthParkings) in
@@ -107,8 +127,6 @@ class ParkingInputViewController: UIViewController, UIPickerViewDelegate, UIPick
          func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
              self.selectedTime = self.timeAmount[row]
            self.charge = self.chargeAmount[row]
-            print(selectedTime)
-           print(charge)
          }
    
 

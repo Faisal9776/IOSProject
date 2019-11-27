@@ -28,19 +28,22 @@ class ParkingReceiptViewController: UIViewController {
         
      
     }
+    //gets the latest parking by calling get latest parking method in parking controller and assigns the labels with its values
     func retrieveData(){
         controller.getLatestParking(){ (allParkings) in
                   if allParkings!.count > 0{
                       for element in allParkings! {
                          // if idx == allParkings!.count-1{
-                                  let parking = allParkings![element.key] as! [String:Any]?
+                              let parking = allParkings![element.key] as! [String:Any]?
                               
                               self.buildingCode.text = parking!["buildingCode"] as? String
                               self.timeAmount.text = parking!["timeAmount"] as? String
                               self.carPlateNumber.text = parking!["carPlateNumber"] as? String
                               self.suitNumber.text = parking!["suitNumber"] as? String
                               self.dateAndTime.text = parking!["dateAndTime"] as? String
-                              self.charges.text = parking!["charge"] as? String
+                        
+                             let charge = parking!["charge"] as! Int
+                              self.charges.text = String(charge)
                           }
                       }
                   }

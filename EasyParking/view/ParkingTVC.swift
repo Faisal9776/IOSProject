@@ -10,7 +10,10 @@ import UIKit
 
 class ParkingTVC: UITableViewController {
     
+    //unsorted parking list
     var parkingList = [Parking]()
+    //sorted parking list
+    var newparkingList = [Parking]()
     
     var controller : ParkingController = ParkingController()
 
@@ -25,12 +28,12 @@ class ParkingTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        //  return the number of sections
         return 1    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return parkingList.count
+        //  return the number of rows
+        return newparkingList.count
     }
 
     
@@ -39,7 +42,7 @@ class ParkingTVC: UITableViewController {
 
         // Configure the cell...
         //display date and time of each parking in each cell
-        let parking = parkingList[indexPath.row]
+        let parking = newparkingList[indexPath.row]
         cell.title?.text = parking.dateAndTime
 
 
@@ -52,10 +55,13 @@ class ParkingTVC: UITableViewController {
         let parkingDetail = mainSB.instantiateViewController(identifier: "ParkingDetailScene") as! ParkingDetailViewController
      
         //open scene with passing current selected parking
-        parkingDetail.currentParking = self.parkingList[indexPath.row]; self.navigationController?.pushViewController(parkingDetail, animated: true)
+        parkingDetail.currentParking = self.newparkingList[indexPath.row]; self.navigationController?.pushViewController(parkingDetail, animated: true)
 
     }
     
+    //gets all the parkings and appends it to parkingList first. Then it is sorted and appended into sorted array newParkingList
+    //not efficient but firestore doesn't have a way to return ordered documents, therefore, it had to be implemented manually
+    //also explained the order(by:) and limit() methods in getLatestParking method which doesn't actually return sorted documents
     func retrieveParkings(){
     controller.getAllParking(){ (allParkings) in
     if allParkings!.count > 0{
@@ -68,17 +74,69 @@ class ParkingTVC: UITableViewController {
                 let carPlateNumber = parking!["carPlateNumber"] as? String
                 let suitNumber = parking!["suitNumber"] as? String
                 let dateAndTime = parking!["dateAndTime"] as? String
-                let charges = parking!["charge"] as? String
+                let charges = parking!["charge"] as? Int
+           
            
            //creating parking object with model and fetched values
-                let newParking = Parking(buildingCode : buildingCode as! String, timeAmount: timeAmount as! String, carPlateNumber: carPlateNumber as! String, suitNumber: suitNumber as! String, dateAndTime: dateAndTime as! String, charge: charges as! String)
+                let newParking = Parking(buildingCode : buildingCode as! String, timeAmount: timeAmount as! String, carPlateNumber: carPlateNumber as! String, suitNumber: suitNumber as! String, dateAndTime: dateAndTime as! String, charge: charges as! Int)
                       
            self.parkingList.append(newParking)
-          //  self.parkingList.sort(by: dateAndTime)
+            
            
            
             }
+            
+           
+           
+            }
+        
+        var count : Int = 0
+        var parking = self.parkingList[0]
+        
+        
+        while (self.parkingList.count != 1){
+           
+            while(count != self.parkingList.count - 1){
+               
+                if(self.parkingList[count].dateAndTime < self.parkingList[count+1].dateAndTime){
+                    if(self.parkingList[count].dateAndTime < parking.dateAndTime){
+                        parking = self.parkingList[count]
+                       
+                    }
+                    
+                        
+                    }
+                    else  if(self.parkingList[count+1].dateAndTime < self.parkingList[count].dateAndTime){
+                    if(self.parkingList[count+1].dateAndTime < parking.dateAndTime){
+                        parking = self.parkingList[count+1]
+                       
+                    }
+                       
+                        
+                }
+                count += 1
+                
+            }
+            
+            self.newparkingList.append(parking)
+            print(self.parkingList.count)
+            if let index = self.parkingList.firstIndex(where: { $0 === parking }) {
+                self.parkingList.remove(at: index)
+            
+           }
+          
+            if(self.parkingList.count != 0){
+                parking = self.parkingList[0]
+                
+            }
+            
+            count=0
+            
+        }
+        self.newparkingList.append(self.parkingList[0])
         self.tableView.reloadData()
+        
+        
         }
     }
         
@@ -86,4 +144,4 @@ class ParkingTVC: UITableViewController {
 
   
 
-}
+
