@@ -35,8 +35,18 @@ class SignInViewController: UIViewController {
                     
                     let user = allUsers![id] as! [String:Any]?
                     
-                    let enteredEmail = self.txtEmail.text
-                    let enteredPassword = self.txtPassword.text
+                    let enteredEmail = self.txtEmail.text ?? ""
+                    let enteredPassword = self.txtPassword.text ?? ""
+                    
+                    //checks for empty fields
+                    if (enteredEmail == "" || enteredPassword == ""){
+                        let errorAlert = UIAlertController(title: "Data Error", message: "Please fill all fields", preferredStyle: .alert)
+                        errorAlert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+                        self.present(errorAlert,animated: true,completion: nil)
+                        
+                        return
+                    }
+                    
                     //print(user!["name"] ?? "No Name")
                     let userName : String = user!["name"] as! String
                     let userEmail : String = user!["email"] as! String
