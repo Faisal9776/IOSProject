@@ -21,8 +21,8 @@ public class UserController{
         db = Firestore.firestore()
     }
     
-    func addNewUser(name: String, email:String,password:String, contact:String,plate : String, credit_card:String, expiry:String,card_name:String,CVV:Int){
-        
+    func addNewUser(name: String, email:String,password:String, contact:String,plate : String, credit_card:String, expiry:String,card_name:String,CVV:Int) -> String{
+        var newId = "null"
         //add user to firebase
         Auth.auth().createUser(withEmail: email, password: password){ authResult, error in
             
@@ -43,7 +43,41 @@ public class UserController{
                     print("Error adding user: \(err)")
                 }else{
                     print("user added with Id: \(ref!.documentID)")
+                    newId = ref!.documentID
                 }
+            }
+            
+        }
+        
+        return newId
+    }
+    
+    func updateUser(id:String, userData:User){
+        let updatedName = userData.name ?? ""
+        let updatedEmail = userData.email ?? ""
+        let updatedPassword = userData.pass ?? ""
+        let updatedPlate = userData.plate ?? ""
+        let updatedContact = userData.contact ?? ""
+        let updatedCreditCard = userData.credit ?? ""
+        let updatedCardName = userData.cardName ?? ""
+        let updatedExpiry = userData.expiryDate ?? ""
+        let updatedCVV = userData.cvv ?? 0
+        
+        db.collection("users").document(id).updateData([
+            "name" : updatedName,
+            "email" : updatedEmail,
+            "password" : updatedPassword,
+            "plate_number" : updatedPlate,
+            "contact_number" : updatedContact,
+            "credit_card" : updatedCreditCard,
+            "card_name" : updatedCardName,
+            "card_expiration" : updatedExpiry,
+            "CVV" : updatedCVV
+        ]){ err in
+            if err != nil{
+                print("Error updating document: \(id)")
+            }else{
+                print("document updated: \(id)")
             }
         }
         

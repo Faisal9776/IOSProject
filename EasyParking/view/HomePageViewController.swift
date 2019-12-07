@@ -41,6 +41,15 @@ class HomePageViewController: UIViewController {
     @IBAction func onCustomerSupport(_ sender: UIBarButtonItem){
         //TODO: send to customer support view
     }
+    
+    @IBAction func onUserSettings(_ sender: UIBarButtonItem){
+        //TODO: send to user settings view
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let SettingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsScene") as! UserSettingsViewController
+        SettingsVC.user = user
+        SettingsVC.userId = userId
+        self.navigationController?.pushViewController(SettingsVC, animated: true)
+    }
 
     /*
     // MARK: - Navigation

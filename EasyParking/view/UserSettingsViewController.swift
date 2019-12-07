@@ -1,25 +1,28 @@
 //
-//  SignUpViewController.swift
+//  UserSettingsViewController.swift
 //  EasyParking
 //
-//  Created by Jeffrey Jaca on 2019-11-13.
+//  Created by Jeffrey Jaca on 2019-11-29.
 //  Copyright © 2019 The Coders. All rights reserved.
 //
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class UserSettingsViewController: UIViewController {
 
-    @IBOutlet var txtName : UITextField!
-    @IBOutlet var txtEmail: UITextField!
-    @IBOutlet var txtPassword : UITextField!
-    @IBOutlet var txtConfirmPassword : UITextField!
-    @IBOutlet var txtContact : UITextField!
-    @IBOutlet var txtPlate : UITextField!
-    @IBOutlet var txtCredit : UITextField!
-    @IBOutlet var txtCardName : UITextField!
-    @IBOutlet var txtExpiry : UITextField!
-    @IBOutlet var txtCVV : UITextField!
+    @IBOutlet var txtSettingsName : UITextField!
+    @IBOutlet var txtSettingsEmail : UITextField!
+    @IBOutlet var txtSettingsPass : UITextField!
+    @IBOutlet var txtSettingsConfirm : UITextField!
+    @IBOutlet var txtSettingsContact : UITextField!
+    @IBOutlet var txtSettingsPlate : UITextField!
+    @IBOutlet var txtSettingsCredit : UITextField!
+    @IBOutlet var txtSettingsCardName : UITextField!
+    @IBOutlet var txtSettingsExpiry : UITextField!
+    @IBOutlet var txtSettingsCVV : UITextField!
+    
+    var user : User = User()!
+    var userId : String = ""
     
     var controller : UserController = UserController()
     
@@ -27,23 +30,37 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadData()
     }
     
-    @IBAction func onSignUp(){
-        let name = txtName.text ?? ""
-        let email = txtEmail.text ?? ""
-        let pass = txtPassword.text ?? ""
-        let confirmPass = txtConfirmPassword.text ?? ""
-        let contact = txtContact.text ?? ""
-        let plate = txtPlate.text ?? ""
-        let credit = txtCredit.text ?? ""
-        let cardName = txtCardName.text ?? ""
-        let expiryDate = txtExpiry.text ?? ""
-        let cvv = Int(txtCVV.text!) ?? 0
+    func loadData() -> Void {
+        txtSettingsName.text = user.name
+        txtSettingsEmail.text = user.email
+        txtSettingsPass.text = user.pass
+        txtSettingsContact.text = user.contact
+        txtSettingsPlate.text = user.plate
+        txtSettingsCredit.text = user.credit
+        txtSettingsCardName.text = user.cardName
+        txtSettingsExpiry.text = user.expiryDate
+        txtSettingsCVV.text = String(user.cvv!)
+    }
+    
+    @IBAction func onSaveSettings(){
+        //TODO: implement
+        let name = txtSettingsName.text ?? ""
+        let email = txtSettingsEmail.text ?? ""
+        let pass = txtSettingsPass.text ?? ""
+        let confirmPass = txtSettingsConfirm.text ?? ""
+        let contact = txtSettingsContact.text ?? ""
+        let plate = txtSettingsPlate.text ?? ""
+        let credit = txtSettingsCredit.text ?? ""
+        let cardName = txtSettingsCardName.text ?? ""
+        let expiry = txtSettingsExpiry.text ?? ""
+        let cvv = Int(txtSettingsCVV.text!) ?? 0
         
         //checks for empty values in all fields
         if (name == "" || email == "" || pass == "" || confirmPass == "" || contact == ""
-            || plate == "" || credit == "" || cardName == "" || expiryDate == "" || cvv == 0){
+            || plate == "" || credit == "" || cardName == "" || expiry == "" || cvv == 0){
             
             let errorAlert = UIAlertController(title: "Data Error", message: "Please fill all fields", preferredStyle: .alert)
             errorAlert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
@@ -52,31 +69,24 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        if pass == confirmPass{
-            //newUser holds user data sent to the homepage
-            let newUser = User(name: name, email: email, password: pass, contact_number: contact, plate_number: plate, credit_card: credit, card_name: cardName, expiry_date: expiryDate, cvv: cvv)
-            
+        if (pass == confirmPass){
             //check proper data formats
-            if (verifyEmail(email:email) && verifyContactNumber(contact: contact) && verifyExpiryDate(expiry: expiryDate) && verifyLicensePlate(plate: plate) && verifyCVV(cvv: cvv)){
-                
-                let id = controller.addNewUser(name: name, email: email, password: pass, contact: contact, plate : plate, credit_card: credit, expiry: expiryDate, card_name: cardName, CVV: cvv)
-                
-                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let HomePageVC = storyboard.instantiateViewController(identifier: "HomePageScene") as! HomePageViewController
-                HomePageVC.user = newUser!
-                HomePageVC.userId = id
-                self.navigationController?.pushViewController(HomePageVC, animated: true)
+            if (verifyEmail(email:email) && verifyContactNumber(contact: contact) && verifyExpiryDate(expiry: expiry) && verifyLicensePlate(plate: plate) && verifyCVV(cvv: cvv)){
+                let updatedUser = User(name: name, email: email, password: pass, contact_number: contact, plate_number: plate, credit_card: credit, card_name: cardName, expiry_date: expiry, cvv: cvv)!
             
+                controller.updateUser(id: userId, userData: updatedUser)
+                
+                openHomeScreen(user: updatedUser)
             }else{
                 let errorAlert = UIAlertController(title: "Verification Error", message: "Please enter data in the right format", preferredStyle: .alert)
                 errorAlert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
                 self.present(errorAlert,animated: true,completion: nil)
             }
             
-            
         }else{
             
         }
+        
     }
     
     func verifyEmail(email: String) -> Bool{
@@ -113,7 +123,15 @@ class SignUpViewController: UIViewController {
             return false //verified BAD AND DUMB
         }
     }
-
+    
+    func openHomeScreen(user : User){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let HomePageVC = storyBoard.instantiateViewController(identifier: "HomeScene") as! HomePageViewController
+        HomePageVC.userId = userId
+        HomePageVC.user = user
+        self.navigationController?.pushViewController(HomePageVC, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
