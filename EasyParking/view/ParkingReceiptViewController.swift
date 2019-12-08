@@ -29,6 +29,7 @@ class ParkingReceiptViewController: UIViewController {
      
     }
     //gets the latest parking by calling get latest parking method in parking controller and assigns the labels with its values
+    //compares by minutes, wait a minute before adding new parking to make the dateAndTime different by at least 1 minute
     func retrieveData(){
         controller.getLatestParking(){ (allParkings) in
                   if allParkings!.count > 0{

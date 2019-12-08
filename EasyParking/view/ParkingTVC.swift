@@ -59,7 +59,7 @@ class ParkingTVC: UITableViewController {
 
     }
     
-    //gets all the parkings and appends it to parkingList first. Then it is sorted and appended into sorted array newParkingList
+    //gets all the parkings and appends it to parkingList first. Then it is sorted in decesding order by date and appended into sorted array newParkingList
     //not efficient but firestore doesn't have a way to return ordered documents, therefore, it had to be implemented manually
     //also explained the order(by:) and limit() methods in getLatestParking method which doesn't actually return sorted documents
     func retrieveParkings(){
@@ -98,16 +98,16 @@ class ParkingTVC: UITableViewController {
            
             while(count != self.parkingList.count - 1){
                
-                if(self.parkingList[count].dateAndTime < self.parkingList[count+1].dateAndTime){
-                    if(self.parkingList[count].dateAndTime < parking.dateAndTime){
+                if(self.parkingList[count].dateAndTime > self.parkingList[count+1].dateAndTime){
+                    if(self.parkingList[count].dateAndTime > parking.dateAndTime){
                         parking = self.parkingList[count]
                        
                     }
                     
                         
                     }
-                    else  if(self.parkingList[count+1].dateAndTime < self.parkingList[count].dateAndTime){
-                    if(self.parkingList[count+1].dateAndTime < parking.dateAndTime){
+                    else  if(self.parkingList[count+1].dateAndTime > self.parkingList[count].dateAndTime){
+                    if(self.parkingList[count+1].dateAndTime > parking.dateAndTime){
                         parking = self.parkingList[count+1]
                        
                     }

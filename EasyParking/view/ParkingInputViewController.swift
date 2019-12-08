@@ -40,6 +40,7 @@ class ParkingInputViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     // assigns all the input values to variable, create instance of parking and add it to the parking collection by calling add parking method in parking controller
+       //when adding, since it compares by minutes, wait a minute before adding new parking to make the dateAndTime different by at least 1 minute
       @IBAction func onAddParking(_ sender: UIButton) {
      
         var userCharge: Int = 0
@@ -53,7 +54,7 @@ class ParkingInputViewController: UIViewController, UIPickerViewDelegate, UIPick
         dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
       
         //verifies the user inputs
-        if (buildingCode.text!.count <= 0){
+        if (buildingCode.text!.count < 4){
             print("Building Code has to be at least 1 character")
         }
         
@@ -61,7 +62,7 @@ class ParkingInputViewController: UIViewController, UIPickerViewDelegate, UIPick
             print("Car Plate Number has to be exactly 7 characters")
         }
         
-        else if (suitNumber.text!.count <= 0){
+        else if (suitNumber.text!.count < 3){
             print("Suit Number has to be at least 1 character")
         }
         

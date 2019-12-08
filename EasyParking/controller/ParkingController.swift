@@ -45,6 +45,7 @@ public class ParkingController{
     //however, for eg. limit(10) doesn't return an ordered documents
     //only the the last 10 parkings of documents
     //that is why I couldn't implement this way in ParkingTVC to display list sorted by array
+    //also it compares by minutes, wait a minute before adding new parking to make the dateAndTime different by at least 1 minute
     func getLatestParking(completion: @escaping (Dictionary<String,Any>?) -> Void)
               {
     var parkings : Dictionary<String, Any>? = Dictionary<String, Any>()
