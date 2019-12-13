@@ -93,24 +93,15 @@
                                     <action selector="onSignUp" destination="XlR-Q2-O4H" eventType="touchUpInside" id="T93-tj-sGB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQ0-20-dNo">
-                                <rect key="frame" x="21" y="428" width="44" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="onSign:" destination="XlR-Q2-O4H" eventType="touchUpInside" id="F4x-4f-JeL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ehi-E8-onU" firstAttribute="trailing" secondItem="brt-y6-aOh" secondAttribute="trailing" constant="20" id="33Z-aC-s8G"/>
                             <constraint firstItem="G8u-JI-pdd" firstAttribute="leading" secondItem="ehi-E8-onU" secondAttribute="leading" constant="250" id="6a2-vo-dwj"/>
-                            <constraint firstItem="aQ0-20-dNo" firstAttribute="leading" secondItem="ehi-E8-onU" secondAttribute="leading" constant="21" id="BYu-X7-yc2"/>
                             <constraint firstItem="ehi-E8-onU" firstAttribute="trailing" secondItem="MXD-5h-uKl" secondAttribute="trailing" constant="100" id="FM9-AT-79p"/>
                             <constraint firstItem="GtH-1j-HbQ" firstAttribute="leading" secondItem="MGO-r8-fd2" secondAttribute="trailing" constant="10" id="GCe-Yo-a0a"/>
                             <constraint firstItem="ehi-E8-onU" firstAttribute="bottom" secondItem="MXD-5h-uKl" secondAttribute="bottom" constant="20" id="MlR-AT-iXe"/>
                             <constraint firstItem="brt-y6-aOh" firstAttribute="top" secondItem="aDi-Lm-PNp" secondAttribute="bottom" constant="20" id="NZF-sW-PaR"/>
-                            <constraint firstItem="aQ0-20-dNo" firstAttribute="top" secondItem="ERu-R5-jZj" secondAttribute="bottom" constant="220" id="Nkt-fU-eLo"/>
                             <constraint firstItem="MXD-5h-uKl" firstAttribute="leading" secondItem="ehi-E8-onU" secondAttribute="leading" constant="100" id="TMo-3k-QBV"/>
                             <constraint firstItem="ehi-E8-onU" firstAttribute="trailing" secondItem="aDi-Lm-PNp" secondAttribute="trailing" constant="20" id="Vce-E0-K5G"/>
                             <constraint firstItem="GtH-1j-HbQ" firstAttribute="leading" secondItem="MGO-r8-fd2" secondAttribute="trailing" constant="10" id="X7i-pN-Syu"/>
@@ -122,7 +113,6 @@
                             <constraint firstItem="ehi-E8-onU" firstAttribute="trailing" secondItem="GtH-1j-HbQ" secondAttribute="trailing" constant="20" id="g60-rb-ZT4"/>
                             <constraint firstItem="brt-y6-aOh" firstAttribute="leading" secondItem="ehi-E8-onU" secondAttribute="leading" constant="20" id="i4A-0t-59F"/>
                             <constraint firstItem="MGO-r8-fd2" firstAttribute="top" secondItem="ERu-R5-jZj" secondAttribute="bottom" constant="20" id="lf4-3q-afG"/>
-                            <constraint firstItem="ehi-E8-onU" firstAttribute="trailing" secondItem="aQ0-20-dNo" secondAttribute="trailing" constant="349" id="mfJ-w9-Fc0"/>
                             <constraint firstItem="ERu-R5-jZj" firstAttribute="leading" secondItem="ehi-E8-onU" secondAttribute="leading" constant="20" id="nBq-TD-dfm"/>
                             <constraint firstItem="ERu-R5-jZj" firstAttribute="top" secondItem="brt-y6-aOh" secondAttribute="bottom" constant="20" id="tyk-YF-OUY"/>
                             <constraint firstItem="G8u-JI-pdd" firstAttribute="top" secondItem="MGO-r8-fd2" secondAttribute="bottom" constant="20" id="vWz-st-eqY"/>
