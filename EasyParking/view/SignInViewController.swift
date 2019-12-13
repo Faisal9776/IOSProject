@@ -14,6 +14,7 @@ class SignInViewController: UIViewController {
     @IBOutlet var txtPassword : UITextField!
     @IBOutlet var swtRemember : UISwitch!
     
+    
     var controller : UserController = UserController()
     
     override func viewDidLoad() {
@@ -47,6 +48,25 @@ class SignInViewController: UIViewController {
         
     }
     
+    @IBAction func onContact(){
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+               let ContactVC = storyboard.instantiateViewController(withIdentifier: "ContactScene") as! ContactDetail
+               navigationController?.pushViewController(ContactVC, animated: true)
+        
+    }
+    
+    @IBAction func onFindParkingSpot(){
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                     let MapVC = storyboard.instantiateViewController(withIdentifier: "map_scene") as! ViewController
+                     navigationController?.pushViewController(MapVC, animated: true)
+    }
+    
+    @IBAction func onAppManual(){
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let ManualVC = storyboard.instantiateViewController(withIdentifier: "IndexScene") as! indexViewController
+                            navigationController?.pushViewController(ManualVC, animated: true)
+         
+    }
     
 
     /*
@@ -58,5 +78,6 @@ class SignInViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }
