@@ -10,6 +10,7 @@
 		080ED2DA237C717B00C013C0 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ED2D9237C717B00C013C0 /* UserController.swift */; };
 		080ED2DC237C834000C013C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ED2DB237C834000C013C0 /* SignUpViewController.swift */; };
 		0836A359237B704000776A24 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836A358237B704000776A24 /* SignInViewController.swift */; };
+		085B9FFD237F45E6005D948D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085B9FFC237F45E6005D948D /* User.swift */; };
 		08ABF19823788EE400CEC3D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF19723788EE400CEC3D6 /* AppDelegate.swift */; };
 		08ABF19A23788EE400CEC3D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF19923788EE400CEC3D6 /* SceneDelegate.swift */; };
 		08ABF19C23788EE400CEC3D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF19B23788EE400CEC3D6 /* ViewController.swift */; };
@@ -19,6 +20,8 @@
 		08ABF1AF23788EE600CEC3D6 /* EasyParkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF1AE23788EE600CEC3D6 /* EasyParkingTests.swift */; };
 		08ABF1BA23788EE600CEC3D6 /* EasyParkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF1B923788EE600CEC3D6 /* EasyParkingUITests.swift */; };
 		08ABF1C8237892C500CEC3D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08ABF1C7237892C500CEC3D6 /* GoogleService-Info.plist */; };
+		08E218B323899A8B009C5B0B /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E218B223899A8B009C5B0B /* HomePageViewController.swift */; };
+		08E218B52391ABB4009C5B0B /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E218B42391ABB4009C5B0B /* UserSettingsViewController.swift */; };
 		766986A7D23EC0138353FE0B /* Pods_EasyParking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C511477922FA1ED8173384 /* Pods_EasyParking.framework */; };
 		76E5F180363C019FA048B836 /* Pods_EasyParkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F815EEDFFF78B95C1F671D6B /* Pods_EasyParkingTests.framework */; };
 		A1B80378D3562DE0F8DF639F /* Pods_EasyParking_EasyParkingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D87EC04457D317C23F10B9 /* Pods_EasyParking_EasyParkingUITests.framework */; };
@@ -45,6 +48,7 @@
 		080ED2D9237C717B00C013C0 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		080ED2DB237C834000C013C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0836A358237B704000776A24 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		085B9FFC237F45E6005D948D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		08ABF19423788EE400CEC3D6 /* EasyParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08ABF19723788EE400CEC3D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08ABF19923788EE400CEC3D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		08ABF1B923788EE600CEC3D6 /* EasyParkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyParkingUITests.swift; sourceTree = "<group>"; };
 		08ABF1BB23788EE600CEC3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08ABF1C7237892C500CEC3D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08E218B223899A8B009C5B0B /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		08E218B42391ABB4009C5B0B /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		3B4671D8ECCA34DB07CD7C79 /* Pods-EasyParking-EasyParkingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyParking-EasyParkingUITests.debug.xcconfig"; path = "Target Support Files/Pods-EasyParking-EasyParkingUITests/Pods-EasyParking-EasyParkingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		70C511477922FA1ED8173384 /* Pods_EasyParking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyParking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D87EC04457D317C23F10B9 /* Pods_EasyParking_EasyParkingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyParking_EasyParkingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +108,7 @@
 		0836A35A237B7BD600776A24 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				085B9FFC237F45E6005D948D /* User.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -112,6 +119,8 @@
 				08ABF19B23788EE400CEC3D6 /* ViewController.swift */,
 				0836A358237B704000776A24 /* SignInViewController.swift */,
 				080ED2DB237C834000C013C0 /* SignUpViewController.swift */,
+				08E218B223899A8B009C5B0B /* HomePageViewController.swift */,
+				08E218B42391ABB4009C5B0B /* UserSettingsViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -448,8 +457,11 @@
 				0836A359237B704000776A24 /* SignInViewController.swift in Sources */,
 				08ABF19C23788EE400CEC3D6 /* ViewController.swift in Sources */,
 				080ED2DA237C717B00C013C0 /* UserController.swift in Sources */,
+				08E218B52391ABB4009C5B0B /* UserSettingsViewController.swift in Sources */,
+				08E218B323899A8B009C5B0B /* HomePageViewController.swift in Sources */,
 				08ABF19823788EE400CEC3D6 /* AppDelegate.swift in Sources */,
 				08ABF19A23788EE400CEC3D6 /* SceneDelegate.swift in Sources */,
+				085B9FFD237F45E6005D948D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

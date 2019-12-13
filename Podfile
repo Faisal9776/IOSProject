@@ -14,6 +14,7 @@ target 'EasyParking' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
 
   # Optionally, include the Swift extensions if you're using Swift.
   pod 'FirebaseFirestoreSwift'
