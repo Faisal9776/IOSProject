@@ -62,10 +62,9 @@ class SignUpViewController: UIViewController {
                 let id = controller.addNewUser(name: name, email: email, password: pass, contact: contact, plate : plate, credit_card: credit, expiry: expiryDate, card_name: cardName, CVV: cvv)
                 
                 let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let HomePageVC = storyboard.instantiateViewController(identifier: "HomePageScene") as! HomePageViewController
-                HomePageVC.user = newUser!
-                HomePageVC.userId = id
-                self.navigationController?.pushViewController(HomePageVC, animated: true)
+                let SignInVC = storyboard.instantiateViewController(identifier: "SignInScene") as! SignInViewController
+                
+                self.navigationController?.pushViewController(SignInVC, animated: true)
             
             }else{
                 let errorAlert = UIAlertController(title: "Verification Error", message: "Please enter data in the right format", preferredStyle: .alert)

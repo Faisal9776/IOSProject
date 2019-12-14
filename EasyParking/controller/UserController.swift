@@ -23,31 +23,43 @@ public class UserController{
     
     func addNewUser(name: String, email:String,password:String, contact:String,plate : String, credit_card:String, expiry:String,card_name:String,CVV:Int) -> String{
         var newId = "null"
+        
+        //dispatch group to wait for retrieval of data
+        let group = DispatchGroup()
+        group.enter()
+        
         //add user to firebase
         Auth.auth().createUser(withEmail: email, password: password){ authResult, error in
             
             //adds user data to db
             var ref : DocumentReference? = nil
-            ref = self.db.collection("users").addDocument(data: [
-                "name" : name,
-                "email" : email,
-                "password" : password,
-                "contact_number" : contact,
-                "plate_number" : plate,
-                "credit_card" : credit_card,
-                "card_expiration" : expiry,
-                "card_name" : card_name,
-                "CVV" : CVV,
-            ]){ err in
-                if let err = err{
-                    print("Error adding user: \(err)")
-                }else{
-                    print("user added with Id: \(ref!.documentID)")
-                    newId = ref!.documentID
+            DispatchQueue.main.async {
+                ref = self.db.collection("users").addDocument(data: [
+                        "name" : name,
+                        "email" : email,
+                        "password" : password,
+                        "contact_number" : contact,
+                        "plate_number" : plate,
+                        "credit_card" : credit_card,
+                        "card_expiration" : expiry,
+                        "card_name" : card_name,
+                        "CVV" : CVV,
+                    ]){ err in
+                        if let err = err{
+                            print("Error adding user: \(err)")
+                        }else{
+                             
+                                print("user added with Id: \(ref!.documentID)")
+                                newId = ref!.documentID
+                            
+                            
+                            
+                        }
+                    }
+                    
                 }
             }
             
-        }
         
         return newId
     }
